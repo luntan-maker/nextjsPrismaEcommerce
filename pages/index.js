@@ -1,19 +1,26 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/layout'
+
 export default function Home() {
-  const items = [
-    {
-      image: "img1.jpg",
-      description: "This is the first description for the first object",
-      price: "$15"
-    },
-    {
-      image: "img2.jpg",
-      description: "This is the second description for the second object",
-      price: "$5"
-    }
-  ]
+  // const items = [
+  //   {
+  //     image: "img1.jpg",
+  //     description: "This is the first description for the first object",
+  //     price: "$15"
+  //   },
+  //   {
+  //     image: "img2.jpg",
+  //     description: "This is the second description for the second object",
+  //     price: "$5"
+  //   }
+  // ]
+
+  const items = fetch("http://localhost:3000/api/items")
+                  .then((response) => response.json())
+                  .then((data => {
+                    return data
+                  }))
   return (
     <Layout>
     <div className="row">
