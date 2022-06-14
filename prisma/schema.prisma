@@ -11,9 +11,32 @@ datasource db {
 }
 
 model Item {
-  id            Int     @default(autoincrement()) @id
-  image         String
-  title         String
-  description   String
-  price         String
+  id          Int           @id @default(autoincrement())
+  image       String
+  title       String
+  description String
+  price       String
+  // inCheckOut checkedItem?
+  checkedItem checkedItem[]
+}
+
+// model checkedItem {
+//   id    Int     @default(autoincrement()) @id
+//   item  Item    @relation(name:"checkedOutItems")
+//   count Int
+// }
+model checkedItem {
+  id     Int   @id
+  count  Int
+
+  items  Item?  @relation(fields: [itemId], references: [id])
+  itemId Int?
+
+  Cart   Cart? @relation(fields: [cartId], references: [id])
+  cartId Int?
+}
+
+model Cart {
+  id    Int           @id @default(autoincrement())
+  items checkedItem[]
 }
