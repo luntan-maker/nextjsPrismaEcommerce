@@ -13,8 +13,6 @@ export async function deleteItemFromCart(id){
 
 
 export default async function handler(req, res){
-    // const Item = await prisma.item.findMany();
     const Item = await deleteItemFromCart(req.query.id)
     res.json(Item)
-    // res.json("Hello")
 }

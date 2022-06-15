@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import myImage from '../public/test_cart.jpg'
 import Image from 'next/image'
 
 

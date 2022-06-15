@@ -9,8 +9,6 @@ export async function getCart(){
 
 
 export default async function handler(req, res){
-    // const Item = await prisma.item.findMany();
     Item = await getCart()
     res.json(Item)
-    // res.json("Hello")
 }

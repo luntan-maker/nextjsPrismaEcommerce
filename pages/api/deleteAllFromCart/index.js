@@ -2,13 +2,13 @@ import { PrismaClient } from ".prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function getData(){
-    const Item = await prisma.item.findMany();
+export async function deleteItemFromCart(id){
+    const Item = await prisma.checkedItem.deleteMany({});
     return Item
 }
 
 
 export default async function handler(req, res){
-    Item = await getData()
+    const Item = await deleteItemFromCart(req.query.id)
     res.json(Item)
 }
