@@ -4,7 +4,7 @@ export default function Item({prodData}) {
     return (
     <Layout>
         <div id={prodData.id}>
-            <Image src={prodData.image} width={200} height={200}/> 
+            <center><Image src={prodData.image} width={200} height={200}/> </center>
             <br />
             <center>{prodData.title}</center>
             <br />
@@ -28,30 +28,7 @@ export default function Item({prodData}) {
 
 
 import {getDatum} from '../api/item/index'
-// import {getData} from "../api/items/index"
-// export async function getStaticPaths() {
-//     const paths = getData();
-//     paths.then(data=>console.log(data))
-//     return {
-//         paths: [
-//             {params: {variable: [1]}}
-//         ],
-//         fallback: false,
-//     }
-    // return {
-    //     paths,
-    //     fallback: false,
-    // }
-// }
 
-// export async function getStaticProps({ params} ) {
-//     const prodData = getDatum(params.id)
-//     return {
-//         props: {
-//             prodData
-//         }
-//     }
-// }
 export async function getServerSideProps(context) {
     const prodData = await getDatum(parseInt(context.params.id))
     return{

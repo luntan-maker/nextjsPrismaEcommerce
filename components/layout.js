@@ -5,9 +5,9 @@ import Image from 'next/image'
 export default function layout({ children }) {
     return (
         <>
-        <div className="col-md-2" style={{display: 'flex'}}>
-            <h1 style={{ display: 'flex'}}><Link href="/"><a>Company</a></Link></h1>
-            <Link style={{ display: 'flex'}} href="/cart"><a><Image src="/test_cart.jpg" width={100} height={100} alt="image"/></a></Link>
+        <div className="split">
+            <Link href="/"><a><h2>Company</h2></a></Link>
+            <Link href="/cart"><Image src="/test_cart.jpg" width={50} height={50} alt="image"/></Link>
         </div>
             <main>{children}</main>
         </>

@@ -9,10 +9,12 @@ export default function Home({ jsonData }) {
     {jsonData.map((item)=>{
       return(
         <Link href={"/product/"+item.id}>
-          <div className="col-md-2" id={item.id}>
-            <img src={item.image} width={150} height={200} display="block" alt={item.image}/>
-            <center>{item.description}</center>
-            <center>{item.price}</center>
+          <div className="card"  style={{width: '18rem'}} id={item.id}>
+            <img className="card-img-top"src={item.image} width={150} height={200}  display="block" alt={item.image}/>
+            <div className="card-body">
+              <center>{item.description}</center>
+              <center>{item.price}</center>
+            </div>
           </div>
         </Link>
       )
