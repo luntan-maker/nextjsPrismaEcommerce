@@ -14,8 +14,11 @@ export default function FirstCart({arr, arr2}) {
                  )
              })}
              {/* <Link href="/checkout"><Image src="/checkout.png" width={200} height={100} alt="Checkout image"/></Link> */}
-            <button onClick={goToCheckout}>Checkout</button>
-        
+            {/* <button onClick={goToCheckout}>Checkout</button> */}
+                
+            <form action="http://localhost:3000/api/checkout" method="POST">
+                <button type="submit">Checkout</button>
+            </form>
         </Layout>
     )
 
@@ -44,7 +47,8 @@ export async function getServerSideProps(context) {
     }
 }
 function goToCheckout(){
-    window.location="/checkout"
+    // window.location="/checkout"
+    window.location="/create-checkout-session"
 }
 
 

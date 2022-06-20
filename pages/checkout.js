@@ -1,5 +1,5 @@
 import Layout from '../components/layout'
-
+require('dotenv').config()
 
 export default function checkout({arr2, arr}){
     return(
@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
     var arr = []
     var arr2 = []
     console.log("hello")
-    const test = await Promise.all( await cartData.map(async (datum) =>{
+    const test = await Promise.all( cartData.map(async (datum) =>{
         const dat = await getDatum(datum.id)
         arr.push(dat)
         arr2.push(datum)
