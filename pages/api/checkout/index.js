@@ -7,12 +7,8 @@ import {getDatum} from '../item'
 export default async function handler(req, res){
     const cartData = await getCart()
     var arr = []
-    // var arr2 = []
     const test = await Promise.all( cartData.map(async (datum) =>{
         const dat = await getDatum(datum.id)
-        // arr.push(dat)
-        // arr2.push(datum)
-        // console.log(datum)
         arr.push({
             price_data: {
                 currency: 'usd',
@@ -24,7 +20,6 @@ export default async function handler(req, res){
             quantity: datum.count,
         })
     }))
-    // console.log(arr)
 
     const session = await stripe.checkout.sessions.create({
         line_items: arr,

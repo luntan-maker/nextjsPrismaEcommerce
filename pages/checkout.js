@@ -1,5 +1,4 @@
 import Layout from '../components/layout'
-require('dotenv').config()
 
 export default function checkout({arr2, arr}){
     return(
